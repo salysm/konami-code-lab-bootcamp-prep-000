@@ -14,18 +14,21 @@ const codes = [
 function init() {
   // your code here
 }
- var index = 0;
-  document.addEventListener('keydown', function (e) {
-    const key = parseInt(e.detail || e.which);
+  //
+  var index = 0
+  document.body.addEventListener('keydown', onKeyDownHandler);
 
+  function onKeyDownHandler(e) {
+    const key = parseInt(e.detail || e.which)
+    console.log('key', key)
     if (key === code[index]) {
-      index++;
+      index++
 
-      if (index === code.length - 1) {
-        window.alert("YOU DID IT!");
-        index = 0;
+      if (index === code.length) {
+        alert("YOU DID IT!")
+        index = 0
       }
     } else {
-      index = 0;
+      index = 0
     }
-  }, false)
+}
